@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/header/Header";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import StarField from "@/components/Starfield";
 
 
 const playfair = Playfair_Display({
@@ -31,8 +32,9 @@ export default function RootLayout({
     
     <html lang="en">
       <body
-        className={` ${playfair.className} ${inter.className} antialiased bg-[#0E1010]`}
+        className={` ${playfair.className} ${inter.className} antialiased`}
       >
+        <StarField />
         <Header />
         <div className="flex flex-col items-center justify-center my-24">
           {children}
