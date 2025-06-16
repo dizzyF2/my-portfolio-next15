@@ -2,7 +2,7 @@
 
 function About() {
     return (
-        <div id="about" className="flex flex-col tablet:flex-row items-start justify-center gap-6 w-full px-4">
+        <section id="about" className="flex flex-col tablet:flex-row items-start justify-center gap-6 w-full px-4">
             <div className="w-full tablet:w-[30%] text-center tablet:text-left text-2xl tablet:text-4xl font-serif italic">
             about me
             </div>
@@ -13,7 +13,7 @@ function About() {
                 Whether it`s a personal project or part of a team, 
                 I care about clean design, simple user experience, and writing code that works well.
             </div>
-        </div>
+        </section>
     );
 }
 

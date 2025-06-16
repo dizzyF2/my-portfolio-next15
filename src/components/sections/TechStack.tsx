@@ -1,5 +1,5 @@
 import { createSupabaseServerClient } from "@/utils/supabase/server"
-import TechCard from "./TechCard"
+import TechCard from "../TechCard"
 import { Technology } from "@/types/index.types"
 
 
@@ -18,7 +18,7 @@ const fetchTechnologies = async (): Promise<Technology[]> =>{
 async function TechStack() {
     const technologies = await fetchTechnologies()
     return (
-        <div id="technologies" className="flex flex-col gap-5 items-center justify-center">
+        <section id="technologies" className="flex flex-col gap-5 items-center justify-center">
             <p className="text-2xl tracking-tighter tablet:text-4xl">
                 Frameworks & Tools
             </p>
@@ -28,7 +28,7 @@ async function TechStack() {
             <>
                 <TechCard  technologies={technologies} />
             </>
-        </div>
+        </section>
     )
 }
 

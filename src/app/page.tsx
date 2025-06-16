@@ -1,8 +1,8 @@
-import About from "@/components/About";
-import GetInTouch from "@/components/GetInTouch";
-import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
-import TechStack from "@/components/TechStack";
+import About from "@/components/sections/About";
+import GetInTouch from "@/components/sections/GetInTouch";
+import Hero from "@/components/sections/Hero";
+import Projects from "@/components/sections/Projects";
+import TechStack from "@/components/sections/TechStack";
 
 
 

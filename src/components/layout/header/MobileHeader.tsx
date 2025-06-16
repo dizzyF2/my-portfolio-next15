@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
 import NavLinks from "./NavLinks"
+import PersonalBrand from "./PersonalBrand"
 
 function MobileHeader() {
     const [open, setOpen] = useState(false)
@@ -40,8 +41,8 @@ function MobileHeader() {
 
 
     return (
-        <div className="flex items-center justify-between tablet:hidden px-5 py-3 bg-inherit border border-transparent border-b-gray-500">
-            <h3 className="text-white">Faris Abdelbagi</h3>
+        <div className={`flex items-center justify-between tablet:hidden px-5 py-3 bg-inherit border border-transparent border-b-gray-500`}>
+            <PersonalBrand />
             <div className="flex gap-2 items-center" ref={menuButtonRef}>
                 <Menu size={20} className="text-black dark:text-white cursor-pointer" onClick={() => setOpen(!open)} />
             </div>
@@ -56,13 +57,13 @@ function MobileHeader() {
                 ref={menuRef}
                 className={`
                     ${open
-                        ? "fixed z-[999] right-0 top-0 w-[65%] tablet:hidden h-screen bg-[#161618] p-10 ease-in duration-300"
+                        ? "fixed z-[999] right-0 top-0 w-[65%] tablet:hidden h-screen  bg-[#020202fa] p-10 ease-in duration-300"
                         : "fixed right-[-100%] tablet:hidden top-0 p-10 h-screen ease-in duration-500"
                     }
                 `}
             >
                 <div className="flex w-full items-center justify-start">
-                    <div className="p-1 w-fit cursor-pointer" onClick={() => setOpen(false)}>
+                    <div className="p-1 w-fit cursor-pointer hover:bg-white/10 hover:rounded-full" onClick={() => setOpen(false)}>
                         <X size={25} color="white" />
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import { Technology } from "@/types/index.types"
-import ProjectCard from "./ProjectCard"
+import ProjectCard from "../ProjectCard"
 import { createSupabaseServerClient } from "@/utils/supabase/server"
 
 
@@ -38,7 +38,7 @@ const fetchProjects = async () => {
 async function Projects() {
     const projectDetails = await fetchProjects()
     return (
-        <div id="projects" className="flex flex-col items-center justify-center gap-5">
+        <section id="projects" className="flex flex-col items-center justify-center gap-5">
             <p className="text-2xl tablet:text-4xl">
                 projects
             </p>
@@ -48,7 +48,7 @@ async function Projects() {
             <div>
                 <ProjectCard projectDetails={projectDetails} />
             </div>
-        </div>
+        </section>
     )
 }
 

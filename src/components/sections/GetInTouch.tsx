@@ -5,7 +5,7 @@ import Link from "next/link"
 
 function GetInTouch() {
     return (
-    <div id="contact" className="flex flex-col gap-5 items-center justify-center">
+    <section id="contact" className="flex flex-col gap-5 items-center justify-center">
         <p className="text-2xl tracking-tighter tablet:text-4xl">
             get in touch
         </p>
@@ -37,7 +37,7 @@ function GetInTouch() {
                 </Link>
             ))}
         </div>
-    </div>
+    </section>
     )
 }
 

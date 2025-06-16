@@ -65,53 +65,55 @@ export default function ImageSlider({ images, altText }: ImageSliderProps) {
 
     return (
         <>
-            <div className="relative overflow-hidden w-full h-64 tablet:h-80 rounded-lg group">
-                {/* Main image */}
-                <div className="relative h-full w-full">
-                    <Image
-                    src={imageArray[currentIndex] || "/placeholder.svg"}
-                    alt={altText}
-                    fill
-                    className="absolute rounded-lg object-cover size-full transition-transform duration-500"
-                    />
-                </div>
-
-                {/* Navigation arrows */}
-                {imageArray.length > 1 && (
-                    <>
-                        <button
-                            onClick={prevSlide}
-                            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer focus:outline-none"
-                            aria-label="Previous image"
-                        >
-                            <ChevronLeft className="text-white" size={20} />
-                        </button>
-                        <button
-                            onClick={nextSlide}
-                            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer focus:outline-none"
-                            aria-label="Next image"
-                        >
-                            <ChevronRight className="text-white" size={20} />
-                        </button>
-                    </>
-                )}
-
-                {/* Zoom button */}
-                <button
-                    onClick={handleZoom}
-                    className="absolute bottom-2 right-2 bg-black/50 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer focus:outline-none"
-                    aria-label="Zoom image"
-                >
-                    <Maximize2 className="text-white" size={16} />
-                </button>
-
-                {/* Image counter */}
-                {imageArray.length > 1 && (
-                    <div className="absolute bottom-2 left-2 bg-black/50 px-2 py-1 rounded text-xs text-white">
-                    {currentIndex + 1} / {imageArray.length}
+            {!isZoomed && (
+                <div className="relative overflow-hidden w-full h-64 tablet:h-80 rounded-lg group">
+                    {/* Main image */}
+                    <div className="relative h-full w-full">
+                        <Image
+                        src={imageArray[currentIndex] || "/placeholder.svg"}
+                        alt={altText}
+                        fill
+                        className="absolute rounded-lg object-cover size-full transition-transform duration-500"
+                        />
                     </div>
-                )}
-            </div>
+
+                    {/* Navigation arrows */}
+                    {imageArray.length > 1 && (
+                        <>
+                            <button
+                                onClick={prevSlide}
+                                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer focus:outline-none"
+                                aria-label="Previous image"
+                            >
+                                <ChevronLeft className="text-white" size={20} />
+                            </button>
+                            <button
+                                onClick={nextSlide}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer focus:outline-none"
+                                aria-label="Next image"
+                            >
+                                <ChevronRight className="text-white" size={20} />
+                            </button>
+                        </>
+                    )}
+
+                    {/* Zoom button */}
+                    <button
+                        onClick={handleZoom}
+                        className="absolute bottom-2 right-2 bg-black/50 hover:bg-black/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer focus:outline-none"
+                        aria-label="Zoom image"
+                    >
+                        <Maximize2 className="text-white" size={16} />
+                    </button>
+
+                    {/* Image counter */}
+                    {imageArray.length > 1 && (
+                        <div className="absolute bottom-2 left-2 bg-black/50 px-2 py-1 rounded text-xs text-white">
+                        {currentIndex + 1} / {imageArray.length}
+                        </div>
+                    )}
+                </div>
+            )}
 
             {/* Zoom modal */}
             {isZoomed && (
@@ -136,7 +138,7 @@ export default function ImageSlider({ images, altText }: ImageSliderProps) {
                     {/* Close button */}
                     <button
                         onClick={closeZoom}
-                        className="absolute top-0 right-0 bg-white/10 p-2 rounded-full cursor-pointer focus:outline-none"
+                        className="absolute top-0 right-0 bg-white/10 hover:bg-white/20 p-2 rounded-full cursor-pointer focus:outline-none"
                         aria-label="Close zoom view"
                     >
                         <X className="text-white" size={24} />
@@ -147,14 +149,14 @@ export default function ImageSlider({ images, altText }: ImageSliderProps) {
                         <>
                             <button
                                 onClick={prevSlide}
-                                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full cursor-pointer focus:outline-none"
+                                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full cursor-pointer focus:outline-none"
                                 aria-label="Previous image"
                             >
                                 <ChevronLeft className="text-white" size={24} />
                             </button>
                             <button
                                 onClick={nextSlide}
-                                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full cursor-pointer focus:outline-none"
+                                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full cursor-pointer focus:outline-none"
                                 aria-label="Next image"
                             >
                                 <ChevronRight className="text-white" size={24} />
@@ -164,7 +166,7 @@ export default function ImageSlider({ images, altText }: ImageSliderProps) {
 
                     {/* Image counter for zoom view */}
                     {imageArray.length > 1 && (
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 px-3 py-1 rounded text-sm text-white">
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 hover:bg-black/70 px-3 py-1 rounded text-sm text-white">
                             {currentIndex + 1} / {imageArray.length}
                         </div>
                     )}

@@ -1,13 +1,13 @@
 import { ContactInfo } from "@/constants"
 import Image from "next/image"
 import Link from "next/link"
-import ContactButton from "./buttons/ContactButton"
-import ViewProjects from "./buttons/ViewProjects"
+import ContactButton from "../buttons/ContactButton"
+import ViewProjects from "../buttons/ViewProjects"
 
 
 function Hero() {
     return (
-        <div className="flex items-center justify-center bg-white w-full rounded-3xl text-black py-8">
+        <section className="flex items-center justify-center bg-white w-full rounded-3xl text-black py-8">
             <div className="flex flex-col justify-between w-full max-w-[920px] h-full px-4 gap-6">
                 {/* Text Section */}
                 <div className="flex flex-col gap-1">
@@ -52,7 +52,7 @@ function Hero() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

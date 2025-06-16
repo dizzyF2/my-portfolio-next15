@@ -43,9 +43,9 @@ function NavLinks({onItemClick, ScreenType}: NavLinksProps) {
             </>
         ) : (
             <>
-                <div className="cursor-pointer size-fit" onClick={()=> handleClick("about")}>About</div>
-                <div className="cursor-pointer size-fit" onClick={()=> handleClick("technologies")}>technologies</div>
-                <div className="cursor-pointer size-fit" onClick={()=> handleClick("projects")}>projects</div>
+                <div className="cursor-pointer size-fit hover:text-gray-400" onClick={()=> handleClick("about")}>About</div>
+                <div className="cursor-pointer size-fit hover:text-gray-400" onClick={()=> handleClick("technologies")}>technologies</div>
+                <div className="cursor-pointer size-fit hover:text-gray-400" onClick={()=> handleClick("projects")}>projects</div>
                 {ScreenType !== "footer" && <ContactButton className="px-4 py-1 text-sm font-medium tracking-wide uppercase bg-[#1f2220] hover:bg-white hover:text-black  rounded-full transition cursor-pointer" />}
             </>
         )
