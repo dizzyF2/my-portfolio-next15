@@ -7,7 +7,6 @@ import Projects from "@/components/sections/Projects";
 import TechStack from "@/components/sections/TechStack";
 
 
-
 export default async function Home() {
   return (
     <div className="flex flex-col items-center justify-center gap-60 text-white w-full max-w-[1110px] mx-auto px-4">

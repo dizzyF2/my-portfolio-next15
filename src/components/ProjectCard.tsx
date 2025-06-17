@@ -16,7 +16,7 @@ function ProjectCard({projectDetails}:{projectDetails: Project[]}) {
                 return(
                     <div key={project.id} className="flex flex-col tablet:flex-row items-center gap-8 my-12 max-w-5xl mx-auto">
                         {/* IMAGE SLIDER */}
-                        <div className={`laptop:mb-10 w-full h-64 tablet:w-1/2 ${isLeft ? "" : "tablet:order-2"}`}>
+                        <div className={`laptop:mb-10 w-full tablet:w-[70%] h-64 laptop:w-1/2 ${isLeft ? "" : "tablet:order-2"}`}>
                             <ImageSlider images={images} altText={project.projectName} />
                         </div>
 

@@ -22,7 +22,7 @@ function TechCard({technologies}: {technologies: Technology[]}) {
     }
     return (
         <>
-            <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-6 max-w-5xl w-full">
+            <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-6 max-w-5xl w-[70%] tablet:w-full">
                 {technologies.map((tech, index) => (
                     <div
                     key={index}
