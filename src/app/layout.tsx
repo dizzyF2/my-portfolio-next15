@@ -19,7 +19,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Create Next App",
+  title: "Faris Abdelbagi",
   description: "Personal portfolio website",
 };
 
