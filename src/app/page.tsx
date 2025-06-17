@@ -1,3 +1,5 @@
+export const revalidate = 3600;
+
 import About from "@/components/sections/About";
 import GetInTouch from "@/components/sections/GetInTouch";
 import Hero from "@/components/sections/Hero";
