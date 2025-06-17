@@ -3,7 +3,7 @@
 function About() {
     return (
         <section id="about" className="flex flex-col tablet:flex-row items-start justify-center gap-6 w-full px-4">
-            <div className="w-full tablet:w-[30%] text-center tablet:text-left text-2xl tablet:text-4xl font-serif italic">
+            <div className="w-full font-bold tablet:w-[30%] text-center tablet:text-left text-2xl tablet:text-4xl font-serif italic">
             about me
             </div>
             <div className="w-full tablet:w-[70%] text-sm tablet:text-base leading-relaxed text-left text-gray-200">

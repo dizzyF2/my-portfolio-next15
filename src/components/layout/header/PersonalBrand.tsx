@@ -3,8 +3,8 @@
 
 function PersonalBrand() {
     return (
-        <h1 className="text-base tablet:text-2xl text-white hover:text-gray-200 hover:cursor-default">
-            Faris Abdelbagi
+        <h1 className="text-lg tablet:text-2xl uppercase text-white font-semibold tracking-wide drop-shadow-md hover:text-gray-200 hover:cursor-default">
+            Faris
         </h1>
     )
 }

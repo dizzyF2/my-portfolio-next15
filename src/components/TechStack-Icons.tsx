@@ -27,16 +27,16 @@ export function ProjectTechIcons({ techIcons, className = "" }: ProjectTechIcons
 
     return (
         <>
-            <div className={`flex items-center gap-4 ${className}`}>
+            <div className={`flex items-center gap-4 ${className} bg-black`}>
                 {techIcons?.map((icon, index) => (
                     <Image
                         key={index}
-                        src={icon.technology.logo_url || "/placeholder.svg"}
+                        src={icon.technology.name.includes("Next.js") ? "/assets/icons/nextjs.js-light.png" : icon.technology.logo_url || "/placeholder.svg"}
                         alt={icon.technology.name}
                         width={30}
                         height={30}
                         onClick={() => handleTechClick(icon.technology)}
-                        className={`cursor-pointer hover:scale-110 transition-transform duration-200`}
+                        className={`cursor-pointer hover:scale-110 transition-transform duration-200 filter hover:brightness-110`}
                     />
                 ))}
             </div>

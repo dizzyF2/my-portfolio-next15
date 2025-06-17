@@ -6,7 +6,7 @@ import Link from "next/link"
 function GetInTouch() {
     return (
     <section id="contact" className="flex flex-col gap-5 items-center justify-center">
-        <p className="text-2xl tracking-tighter tablet:text-4xl">
+        <p className="text-2xl font-bold tracking-tighter tablet:text-4xl">
             get in touch
         </p>
         <p className="text-base tablet:text-xl">
@@ -18,7 +18,7 @@ function GetInTouch() {
                     key={index} 
                     href={icon.linkTo} 
                     target={icon.iconName.includes("email") ? "" : "_blank"} 
-                    className="relative group size-fit"
+                    className="relative group size-fit filter hover:brightness-200"
                 >
                     <Image 
                         src={icon.IconSrc} 

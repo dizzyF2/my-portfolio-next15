@@ -39,10 +39,10 @@ async function Projects() {
     const projectDetails = await fetchProjects()
     return (
         <section id="projects" className="flex flex-col items-center justify-center gap-5">
-            <p className="text-2xl tablet:text-4xl">
+            <p className="font-bold text-2xl tablet:text-4xl">
                 projects
             </p>
-            <p className="text-base tablet:text-xl">
+            <p className="text-base tablet:text-xl text-gray-300">
                 Some things I`ve worked (or am working) on
             </p>
             <div>
