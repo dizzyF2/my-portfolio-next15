@@ -8,7 +8,7 @@ function ViewProjects() {
     return (
         <button 
             onClick={() => scrollToSection("projects", 80)}
-            className="px-4 py-2 text-sm font-semibold tracking-wide uppercase border border-gray-500 text-black bg-white rounded-full hover:bg-gray-100 transition cursor-pointer"
+            className="px-4 py-2 text-sm font-semibold tracking-wide uppercase border border-gray-100 hover:border-transparent text-black bg-white hover:bg-gray-300 rounded-full   transition cursor-pointer"
         >
             view projects
         </button>

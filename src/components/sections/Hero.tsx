@@ -7,12 +7,12 @@ import ViewProjects from "../buttons/ViewProjects"
 
 function Hero() {
     return (
-        <section className="flex items-center justify-center bg-white w-full rounded-3xl text-black py-8">
+        <section className="flex items-center justify-center w-full rounded-3xl text-white py-8">
             <div className="flex flex-col justify-between w-full max-w-[920px] h-full px-4 gap-6">
                 {/* Text Section */}
                 <div className="flex flex-col gap-1">
-                    <p className="text-2xl font-semibold">hello!</p>
-                    <p className="text-base text-gray-700">
+                    <p className="text-2xl font-bold">hello!</p>
+                    <p className="text-base text-gray-200">
                         I`m Faris, a software engineer specializing in front-end development.
                         <br />
                         Welcome to my portfolio website! 😎
@@ -48,7 +48,7 @@ function Hero() {
 
                     <div className="flex flex-col tablet:flex-row gap-2">
                         <ViewProjects />
-                        <ContactButton className="px-4 py-2 text-sm font-semibold tracking-wide uppercase text-white bg-[#2f3634] rounded-full hover:bg-gray-900 transition cursor-pointer" />
+                        <ContactButton className="px-4 py-1 text-sm font-medium tracking-wide uppercase bg-emerald-700 hover:bg-emerald-900  rounded-full transition cursor-pointer" />
                     </div>
                 </div>
             </div>
