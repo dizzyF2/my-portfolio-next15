@@ -129,14 +129,14 @@ export default function ImageSlider({ images, altText }: ImageSliderProps) {
                 <>
                     <button
                         onClick={prevSlide}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full cursor-pointer focus:outline-none z-10"
+                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-gray-700 hover:bg-gray-600 p-2 rounded-full cursor-pointer focus:outline-none z-10"
                         aria-label="Previous image"
                     >
                         <ChevronLeft className="text-white size-3 tablet:size-4 laptop:size-5" />
                     </button>
                     <button
                         onClick={nextSlide}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full cursor-pointer focus:outline-none z-10"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-gray-700 hover:bg-gray-600 p-2 rounded-full cursor-pointer focus:outline-none z-10"
                         aria-label="Next image"
                     >
                         <ChevronRight className="text-white size-3 tablet:size-4 laptop:size-5" />
@@ -200,14 +200,14 @@ export default function ImageSlider({ images, altText }: ImageSliderProps) {
                     <>
                         <button
                             onClick={prevSlide}
-                            className="absolute left-2 tablet:left-3 laptop:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full cursor-pointer focus:outline-none z-10"
+                            className="absolute left-2 tablet:left-3 laptop:left-4 top-1/2 -translate-y-1/2 bg-gray-700 hover:bg-gray-600 p-3 rounded-full cursor-pointer focus:outline-none z-10"
                             aria-label="Previous image"
                         >
                             <ChevronLeft className="text-white size-3 tablet:size-4 laptop:size-6" />
                         </button>
                         <button
                             onClick={nextSlide}
-                            className="absolute right-2 tablet:right-3 laptop:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full cursor-pointer focus:outline-none z-10"
+                            className="absolute right-2 tablet:right-3 laptop:right-4 top-1/2 -translate-y-1/2 bg-gray-700 hover:bg-gray-600 p-3 rounded-full cursor-pointer focus:outline-none z-10"
                             aria-label="Next image"
                         >
                             <ChevronRight className="text-white size-3 tablet:size-4 laptop:size-6" />
