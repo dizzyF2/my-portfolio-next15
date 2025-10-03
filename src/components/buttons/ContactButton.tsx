@@ -1,6 +1,7 @@
 'use client'
 
 import { useScroll } from "@/hooks/useScroll"
+import { Button } from "../ui/button"
 
 function ContactButton({className}:{className: string}) {
     const { scrollToSection } = useScroll()
@@ -9,9 +10,14 @@ function ContactButton({className}:{className: string}) {
         scrollToSection("contact", 80)
     }
     return (
-        <button className={className} onClick={handleContactClick}>
+        <Button 
+            className={className} 
+            onClick={handleContactClick}
+            size="lg"
+            variant="outline"
+        >
             get in touch
-        </button>
+        </Button>
     )
 }
 

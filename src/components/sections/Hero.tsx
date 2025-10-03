@@ -1,59 +1,96 @@
-import { ContactInfo } from "@/constants"
-import Image from "next/image"
-import Link from "next/link"
-import ContactButton from "../buttons/ContactButton"
-import ViewProjects from "../buttons/ViewProjects"
+'use client';
 
+import Image from "next/image";
+import { motion } from "motion/react";
+import ViewProjects from "../buttons/ViewProjects";
+import ContactButton from "../buttons/ContactButton";
 
 function Hero() {
     return (
-        <section className="flex items-center justify-center w-full rounded-3xl text-white py-8">
-            <div className="flex flex-col justify-between w-full max-w-[920px] h-full px-4 gap-6">
-                {/* Text Section */}
-                <div className="flex flex-col gap-1">
-                    <p className="text-2xl font-bold">hello!</p>
-                    <p className="text-base text-gray-200">
-                        I`m Faris, a software engineer specializing in front-end development.
-                        <br />
-                        Welcome to my portfolio website! 😎
-                    </p>
-                </div>
-
-                {/* Icons + Buttons */}
-                <div className="w-full flex items-center justify-between">
-                    <div className="flex gap-3 items-center">
-                        {ContactInfo.map((icon, index) => (
-                            <Link 
-                                key={index} 
-                                href={icon.linkTo} 
-                                target={icon.iconName.includes("email") ? "" : "_blank"} 
-                                className="relative group size-fit"
+        <section className="w-full relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl lg:gap-16 h-[500px]">
+            
+            {/* Left Content */}
+            <motion.div 
+                className="flex-1 space-y-6 sm:space-y-8 max-w-xl w-full"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+                <div className="flex items-start gap-4 sm:gap-5">
+                    <motion.div 
+                        className="w-2 h-24 sm:h-32 lg:h-36 bg-gradient-to-b from-emerald-400 via-emerald-500 to-emerald-600 rounded-full mt-3 sm:mt-4 shadow-lg shadow-emerald-500/50"
+                        animate={{ scaleY: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                    <div className="space-y-3 sm:space-y-4">
+                        <motion.h1 
+                            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.6 }}
+                        >
+                            Hi, {"I'm"}{" "}
+                            <motion.span 
+                                className="bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 bg-clip-text text-transparent capitalize"
+                                animate={{ backgroundPosition: ['0%', '100%', '0%'] }}
+                                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                style={{ backgroundSize: '200% 100%' }}
                             >
-                                <Image 
-                                src={icon.IconSrc} 
-                                alt={icon.iconName} 
-                                width={28} 
-                                height={28}
-                                />
-                                <span 
-                                    className="absolute left-1/2 -translate-x-1/2 top-full mt-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition pointer-events-none group-hover:pointer-events-auto select-text cursor-text z-10"
-                                >
-                                    {icon.linkTo.includes("mailto:")
-                                        ? icon.linkTo.replace("mailto:", "")
-                                        : icon.linkTo}
-                                </span>
-                            </Link>
-                        ))}
-                    </div>
-
-                    <div className="flex flex-col tablet:flex-row gap-2">
-                        <ViewProjects />
-                        <ContactButton className="px-4 py-1 text-sm font-medium tracking-wide uppercase bg-emerald-700 hover:bg-emerald-900  rounded-full transition cursor-pointer" />
+                                faris
+                            </motion.span>
+                        </motion.h1>
+                        <motion.p 
+                            className="text-xl sm:text-2xl lg:text-3xl text-white/80 font-light"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 0.6 }}
+                        >
+                            Passionate{" "}
+                            <span className="text-emerald-400 font-semibold">Frontend Developer</span>
+                        </motion.p>
+                        <motion.p 
+                            className="text-base sm:text-lg text-white/60 max-w-md"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4, duration: 0.6 }}
+                        >
+                            Crafting beautiful, interactive experiences that bring ideas to life
+                        </motion.p>
                     </div>
                 </div>
-            </div>
+
+                <motion.div 
+                    className="flex flex-col sm:flex-row gap-4 ml-6 sm:ml-7 lg:ml-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                >
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
+                        <ViewProjects />
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
+                        <ContactButton className="w-full border-2 border-white/30 hover:border-emerald-500 text-white hover:text-white px-10 py-6 text-lg font-semibold bg-white/5 hover:bg-emerald-500/20 backdrop-blur-sm transition-all duration-300"/>
+                    </motion.div>
+                </motion.div>
+            </motion.div>
+
+            {/* Right Content - Responsive Hero Image */}
+            <motion.div 
+                className="absolute -bottom-1 md:bottom-10 right-0 size-[400px] md:size-[500px] -z-10"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            >
+                <Image 
+                    src="/assets/desk-guy.png"
+                    alt="hero image"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </motion.div>
         </section>
-    )
+    );
 }
 
-export default Hero
+export default Hero;

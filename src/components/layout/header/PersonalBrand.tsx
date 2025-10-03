@@ -1,17 +1,26 @@
+'use client'
 
-
+import { useScroll } from "@/hooks/useScroll";
+import Image from "next/image";
 
 function PersonalBrand() {
+
+    const { scrollToTop } = useScroll()
+
     return (
-        <div className="flex gap-2 items-center justify-center">
-            <div className="uppercase text-white bg-emerald-500 rounded-md size-8 text-center text-3xl cursor-default">
-                f
-            </div>
-            <h1 className="text-lg tablet:text-2xl uppercase text-white font-semibold tracking-wide drop-shadow-md hover:text-gray-200 cursor-default">
-                Faris
-            </h1>
+        <div 
+            onClick={scrollToTop}
+            className="relative w-40 h-9 tablet:w-44 tablet:h-12 cursor-pointer"
+        >
+            <Image
+                src="/assets/portfolio-logo.png"
+                alt="portfolio Logo"
+                fill
+                className="object-cover"
+                priority
+            />
         </div>
-    )
+    );
 }
 
-export default PersonalBrand
+export default PersonalBrand;
