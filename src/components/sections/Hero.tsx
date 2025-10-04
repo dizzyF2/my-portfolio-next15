@@ -82,7 +82,7 @@ function Hero() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
                 <Image 
-                    src="/assets/desk-guy.png"
+                    src="/assets/images/desk-guy.png"
                     alt="hero image"
                     fill
                     className="object-cover"

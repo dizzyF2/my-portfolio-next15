@@ -13,7 +13,7 @@ function PersonalBrand() {
             className="relative w-40 h-9 tablet:w-44 tablet:h-12 cursor-pointer"
         >
             <Image
-                src="/assets/portfolio-logo.png"
+                src="/assets/images/portfolio-logo.png"
                 alt="portfolio Logo"
                 fill
                 className="object-cover"
