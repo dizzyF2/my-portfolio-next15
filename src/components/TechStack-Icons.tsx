@@ -9,15 +9,16 @@ import { Technology } from "@/types/index.types"
 interface ProjectTechIconsProps {
     techIcons: { technology: Technology }[] | undefined
     className?: string
+    iconSize?: number
 }
 
-export function ProjectTechIcons({ techIcons, className = "" }: ProjectTechIconsProps) {
+export function ProjectTechIcons({ techIcons, className = "", iconSize = 30 }: ProjectTechIconsProps) {
     const [selectedTech, setSelectedTech] = useState<Technology | null>(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     const handleTechClick = (tech: Technology) => {
-            setSelectedTech(tech)
-            setIsModalOpen(true)
+        setSelectedTech(tech)
+        setIsModalOpen(true)
     }
 
     const handleCloseModal = () => {
@@ -27,14 +28,14 @@ export function ProjectTechIcons({ techIcons, className = "" }: ProjectTechIcons
 
     return (
         <>
-            <div className={`flex items-center gap-4 ${className} bg-black`}>
+            <div className={`flex items-center flex-wrap gap-3 ${className} bg-transparent`}>
                 {techIcons?.map((icon, index) => (
                     <Image
                         key={index}
-                        src={icon.technology.name.includes("Next.js") ? "/assets/icons/nextjs.js-light.png" : icon.technology.logo_url || "/placeholder.svg"}
+                        src={icon.technology.logo_url || "/placeholder.svg"}
                         alt={icon.technology.name}
-                        width={30}
-                        height={30}
+                        width={iconSize}
+                        height={iconSize}
                         onClick={() => handleTechClick(icon.technology)}
                         className={`cursor-pointer hover:scale-110 transition-transform duration-200 filter hover:brightness-110`}
                     />

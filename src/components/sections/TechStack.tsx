@@ -19,10 +19,10 @@ async function TechStack() {
     const technologies = await fetchTechnologies()
     return (
         <section id="technologies" className="flex flex-col gap-5 items-center justify-center">
-            <p className="text-2xl font-bold tracking-tighter tablet:text-4xl">
+            <p className="text-4xl font-bold tracking-tighter tablet:text-6xl">
                 Frameworks & Tools
             </p>
-            <p className="text-base tablet:text-xl text-gray-300">
+            <p className="text-base tablet:text-lg text-gray-300">
                 Some things I enjoy learning about and doing
             </p>
             <>
