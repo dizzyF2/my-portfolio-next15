@@ -74,9 +74,9 @@ function Hero() {
                 </motion.div>
             </motion.div>
 
-            {/* Right Content - Responsive Hero Image */}
+            {/* Right Content */}
             <motion.div 
-                className="absolute -bottom-1 md:bottom-10 right-0 size-[400px] md:size-[500px] -z-10"
+                className="absolute bottom-[85px] md:bottom-10 -right-1 md:right-20 lg:right-30 size-[300px] md:size-[400px] -z-10"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
