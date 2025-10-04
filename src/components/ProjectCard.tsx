@@ -1,64 +1,89 @@
+'use client'
+
 import Link from "next/link"
-import ImageSlider from "./ImageSlider";
-import { ProjectTechIcons } from "./TechStack-Icons";
-import { Project } from "@/types/index.types";
+import { motion } from "framer-motion"
+import { Card, CardContent } from "@/components/ui/card"
+import ImageSlider from "./ImageSlider"
+import { ProjectTechIcons } from "./TechStack-Icons"
+import { Project } from "@/types/index.types"
 
-
-function ProjectCard({projectDetails}:{projectDetails: Project[]}) {
-
+function ProjectCard({ projectDetails }: { projectDetails: Project[] }) {
     const sortedProjects = [...projectDetails].sort((a, b) => a.id - b.id)
 
+    const truncateDescription = (description: string, maxLength: number = 200) => {
+        const cleanDesc = description.replace(/•/g, '').trim()
+        if (cleanDesc.length <= maxLength) return cleanDesc
+        return cleanDesc.substring(0, maxLength).trim() + "..."
+    }
+
     return (
-        <div className="flex flex-col gap-16">
-            {sortedProjects.map((project: Project, index: number) =>{
-                const isLeft = index % 2 === 0;
-                const images = project.imagesUrl ? (Array.isArray(project.imagesUrl) ? project.imagesUrl : [project.imagesUrl]) : []
-                return(
-                    <div key={project.id} className="flex flex-col tablet:flex-row items-center gap-8 my-12 max-w-5xl mx-auto">
-                        {/* IMAGE SLIDER */}
-                        <div className={`laptop:mb-10 w-full tablet:w-[70%] h-64 laptop:w-1/2 ${isLeft ? "" : "tablet:order-2"}`}>
-                            <ImageSlider images={images} altText={project.projectName} />
-                        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {sortedProjects.map((project: Project, index: number) => {
+                const images = project.imagesUrl
+                    ? Array.isArray(project.imagesUrl)
+                        ? project.imagesUrl
+                        : [project.imagesUrl]
+                    : []
 
-                        {/* CONTENT */}
-                        <div className="flex flex-col items-center justify-center tablet:items-start tablet:justify-start gap-4 w-full md:w-1/2 text-white">
-                            <p className="text-sm uppercase text-gray-400 tracking-wide">
-                                {project.category}
-                            </p>
-                            <h3 className="text-2xl font-bold">
-                                {project.projectName}
-                            </h3>
-                            <p className="text-gray-300 leading-relaxed">
-                                {project.description.replace(/•/g, '').split(". ").map((sentence, index) => (
-                                    <span key={index}>
-                                        {sentence.trim()}.{<br />}
-                                    </span>
-                                ))}
-                            </p>
+                return (
+                    <motion.div
+                        key={project.id}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                        <Card className="bg-[#0a1f1a] border-[#10b981]/20 hover:border-[#10b981]/50 hover:shadow-lg hover:shadow-[#10b981]/10 transition-all duration-300 h-full flex flex-col overflow-hidden">
+                            <CardContent className="flex flex-col h-full">
+                                {/* IMAGE SLIDER */}
+                                <div className="w-full h-72">
+                                    <ImageSlider images={images} altText={project.projectName} />
+                                </div>
 
-                            {/* Tech Stack Icons */}
-                            <ProjectTechIcons techIcons={project.project_technologies} className="mt-2" />
+                                {/* CONTENT */}
+                                <div className="flex flex-col gap-3 p-6 flex-grow">
+                                    <p className="text-xs uppercase text-gray-400 tracking-wide">
+                                        {project.category}
+                                    </p>
+                                    
+                                    <h3 className="text-xl font-bold text-white">
+                                        {project.projectName}
+                                    </h3>
+                                    
+                                    <p className="text-gray-300 text-sm leading-relaxed flex-grow">
+                                        {truncateDescription(project.description)}
+                                    </p>
 
-                            <div className="flex gap-4 mt-4">
-                                <Link
-                                    href={project.source_code}
-                                    target="_blank"
-                                    className="inline-block mt-4 bg-[#1c1f1d] px-5 py-2 rounded-full text-sm font-medium hover:bg-white hover:text-black transition"
-                                >
-                                    View Code
-                                </Link>
-                                {project.demo && (
-                                    <Link
-                                        href={project.demo}
-                                        target="_blank"
-                                        className="inline-block mt-4 bg-[#1c1f1d] px-5 py-2 rounded-full text-sm font-medium hover:bg-white hover:text-black transition"
-                                    >
-                                        View Demo
-                                    </Link>
-                                )}
-                            </div>
-                        </div>
-                    </div>
+                                    {/* Tech Stack Icons */}
+                                    <ProjectTechIcons 
+                                        techIcons={project.project_technologies} 
+                                        className="mt-2"
+                                        iconSize={24}
+                                    />
+
+                                    {/* Buttons */}
+                                    <div className="flex gap-3 mt-4">
+                                        <Link
+                                            href={project.source_code}
+                                            target="_blank"
+                                            className="flex-1 px-4 py-2 rounded-lg text-sm font-medium text-center border-2 border-white/30 cursor-pointer hover:border-emerald-500 text-white hover:text-white  bg-white/5 hover:bg-emerald-500/20 backdrop-blur-sm transition-all duration-300"
+                                        >
+                                            Code
+                                        </Link>
+                                        {project.demo && (
+                                            <Link
+                                                href={project.demo}
+                                                target="_blank"
+                                                className="flex-1 px-4 py-2 rounded-lg text-sm font-medium text-center border-2 border-white/30 cursor-pointer hover:border-emerald-500 text-white hover:text-white  bg-white/5 hover:bg-emerald-500/20 backdrop-blur-sm transition-all duration-300"
+                                            >
+                                                Demo
+                                            </Link>
+                                        )}
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
                 )
             })}
         </div>
