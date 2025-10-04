@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/header/Header";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import Starfield from "@/components/Starfield";
 
 
 const playfair = Playfair_Display({
@@ -29,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={` ${playfair.className} ${inter.className} antialiased bg-[#0d1c1e]`}
       >
@@ -37,6 +38,7 @@ export default function RootLayout({
           {children}
         <ScrollToTop />
         <Footer />
+        <Starfield />
       </body>
     </html>
   );

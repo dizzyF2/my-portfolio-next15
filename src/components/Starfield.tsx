@@ -96,17 +96,17 @@ export default function Starfield() {
     return (
         <>
         {/* Fixed background container */}
-        <div className="fixed inset-0 bg-black -z-10">
+        <div className="fixed inset-0 bg-[#0d1c1e] -z-20">
             {/* Grid Background */}
             <div
             className="absolute inset-0 opacity-20"
-            style={{
-                backgroundImage: `
-                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
-                `,
-                backgroundSize: "50px 50px",
-            }}
+            // style={{
+            //     backgroundImage: `
+            //     linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            //     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+            //     `,
+            //     backgroundSize: "50px 50px",
+            // }}
             />
 
             {/* Animated Stars Canvas */}
